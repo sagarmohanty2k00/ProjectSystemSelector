@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Assign System</title>
+</head>
+<body>
+    <form style="width: 60%" class="mx-auto">
+        <h1>Enter Team Details</h1>
+        <label class="mt-4" for="">Group Name :</label><br>
+        <input type="text" required>
+        <br>
+        <label class="mt-4" for="">Group Leader :</label><br>
+        <input type="text" required>
+        <br>
+        <label class="mt-4" for="">Member 1 :</label>
+        <input class="mt-4" type="text" required>
+        <br>
+        <label class="mt-4" for="">Member 2 :</label>
+        <input class="mt-4" type="text" required>
+        <br>
+        <label class="mt-4" for="">Member 3 :</label>
+        <input class="mt-4" type="text" required>
+        <br>
+        <label class="mt-4" for="">Member 4 :</label>
+        <input class="mt-4" type="text" required>
+        <br>
+        <label class="mt-4" for="">Member 5 :</label>
+        <input class="mt-4" type="text">
+        <br>
+        <button class="mt-4 btn btn-success">SUBMIT</button>
+    </form>
+</body>
+</html>

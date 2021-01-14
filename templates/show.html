@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Show Details</title>
+</head>
+<body>
+    <center>
+        <h1>Team Details</h1>
+        <button onclick=show() id="toggle" class="btn btn-dark m-4 px-4">C1</button>
+        <br>
+        <div id="C1">
+            <h3>Team Name : SAGA</h3>
+            <h4>Leader : leader | sic : 180310003</h4>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <br>
+            <h3>Team Name : SAGA</h3>
+            <h4>Leader : leader | sic : 180310003</h4>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <br>
+        </div>
+        <div class="d-none" id="C2">
+            <h3>Team Name : SAGA</h3>
+            <h4>Leader : leader | sic : 180310003</h4>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <p>Member1 : sagar | sic : 180310003</p>
+            <br>
+        </div>
+    </center>
+
+
+    <script>
+        function show(){
+            c1 = document.getElementById('C1');
+            c2 = document.getElementById('C2');
+            button = document.getElementById('toggle');
+
+            c1.classList.toggle('d-none');
+            c2.classList.toggle('d-none');
+
+            if(button.innerHTML == 'C1'){
+                button.innerHTML = 'C2';
+            }
+            else{
+                button.innerHTML = 'C1';
+            }
+        }
+    </script>
+</body>
+</html>
