@@ -6,12 +6,14 @@ class System(models.Model):
     taken = models.BooleanField()
 
     def __str__(self):
-		return self.name
+        return self.name
 
 
 class Group(models.Model):
-    project_system = models.ForeignKey(System, on_delete=models.SET_NULL)
+    project_system = models.ForeignKey(System, on_delete=models.CASCADE)
     name = models.CharField(max_length=400)
+    Subgroup = models.CharField(max_length=10)
+    leader = models.CharField(max_length=200)
     member_name_1 = models.CharField(max_length=200)
     member_name_2 = models.CharField(max_length=200)
     member_name_3 = models.CharField(max_length=200)
