@@ -1,0 +1,13 @@
+input{
+    text-align: center;
+    justify-content: center;
+}
+.zoom-2{
+    display: flex;
+    zoom: 1.5;
+    /* m: 99vw; */
+}
+.systemInput{
+    border: none;
+    font-size: 40px;
+}

@@ -13,19 +13,26 @@
     <center>
         <h1>Select Your Project System</h1>
         <a href="/show/">show details</a>
-        <a href="">Reset</a>
+        <div class="mx-4 d-inline"></div>
+        <a href="/clear/">Reset</a>
         <br>
         <img src="{% static 'images/magicBall.jpg' %}" alt="">
     
         <br>
-        <button class="btn btn-primary">START</button>
+        <button onclick=selectSystem() class="btn btn-primary">START</button>
         <br>
         <form class="pt-4 mt-4" action="/assign/">
-            <input class="pb-4 mb-4" type="text">
+            <h2 class="d-none" id="fade">Please Wait...</h2>
+            {% for system in all_systems %}
+            <h2 class="" id={{ system.randomid }}>{{system.system.name}}</h2>
+            <h2 class="" name={{ system.randomid }}>{{system.system.id}}</h2>
+            {% endfor %}
+            <input type="text" class="systemInput" name="systemInput" id="systemInput">
             <br>
-            <button class="btn btn-primary" type="submit">ASSIGN</button>
-            <button class="btn btn-primary">RETRY</button>
+            <button id="assign" class="d-none btn btn-primary" type="submit">ASSIGN</button>
         </form>
     </center>
+
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

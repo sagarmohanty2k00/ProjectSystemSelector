@@ -10,28 +10,33 @@
     <title>Assign System</title>
 </head>
 <body>
-    <form style="width: 60%" class="mx-auto">
+    <form method="POST" action="/save/" style="width: 60%" class="mx-auto py-4 my-4">
+        {% csrf_token %}
         <h1>Enter Team Details</h1>
+        <input type="text" name="systemName" class="d-none" id="systemName" value={{ system }}>
         <label class="mt-4" for="">Group Name :</label><br>
-        <input type="text" required>
+        <input type="text" name="gname" required>
+        <br>
+        <label for="" class="mt-4">Sub Group :</label><br>
+        <input type="text" name="subgroup" placeholder="C1 or C2" required>
         <br>
         <label class="mt-4" for="">Group Leader :</label><br>
-        <input type="text" required>
+        <input type="text" name="gleader" required>
         <br>
         <label class="mt-4" for="">Member 1 :</label>
-        <input class="mt-4" type="text" required>
+        <input class="mt-4" type="text" name="mem1" required>
         <br>
         <label class="mt-4" for="">Member 2 :</label>
-        <input class="mt-4" type="text" required>
+        <input class="mt-4" type="text" name="mem2" required>
         <br>
         <label class="mt-4" for="">Member 3 :</label>
-        <input class="mt-4" type="text" required>
+        <input class="mt-4" type="text" name="mem3" required>
         <br>
         <label class="mt-4" for="">Member 4 :</label>
-        <input class="mt-4" type="text" required>
+        <input class="mt-4" type="text" name="mem4">
         <br>
         <label class="mt-4" for="">Member 5 :</label>
-        <input class="mt-4" type="text">
+        <input class="mt-4" type="text" name="mem5">
         <br>
         <button class="mt-4 btn btn-success">SUBMIT</button>
     </form>
