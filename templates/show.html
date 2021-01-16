@@ -13,35 +13,48 @@
         <h1>Team Details</h1>
         <button onclick=show() id="toggle" class="btn btn-dark m-4 px-4">C1</button>
         <br>
-        <div id="C1">
-            <h3>Team Name : SAGA</h3>
-            <h4>Leader : leader | sic : 180310003</h4>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <br>
-            <h3>Team Name : SAGA</h3>
-            <h4>Leader : leader | sic : 180310003</h4>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <br>
-        </div>
-        <div class="d-none" id="C2">
-            <h3>Team Name : SAGA</h3>
-            <h4>Leader : leader | sic : 180310003</h4>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <p>Member1 : sagar | sic : 180310003</p>
-            <br>
-        </div>
     </center>
+        <div class="row" id="C1">
+            
+            {% for grp in c1 %}
+            <div class="col-lg-4 col-md-6">
+            <div class="card mx-auto my-4" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Team Name : {{grp.name}}</h5>
+                  <h5 class="card-title mb-4">system : {{grp.project_system}}</h5>
+                  <h6 class="card-subtitle mb-2">Leader : {{ grp.leader }}</h6>
+                  <p class="card-text">Member1 : {{ grp.member_name_1 }}</p>
+                  <p class="card-text">Member2 : {{ grp.member_name_2 }}</p>
+                  <p class="card-text">Member3 : {{ grp.member_name_3 }}</p>
+                  <p class="card-text">Member4 : {{ grp.member_name_4 }}</p>
+                  <p class="card-text">Member5 : {{ grp.member_name_5 }}</p>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+            
+
+        </div>
+        <div class="d-none row" id="C2">
+
+            {% for grp in c2 %}
+            <div class="col-lg-4 col-md-6">
+            <div class="card mx-auto my-4" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Team Name : {{grp.name}}</h5>
+                  <h5 class="card-title mb-4">system : {{grp.project_system}}</h5>
+                  <h6 class="card-subtitle mb-2">Leader : {{ grp.leader }}</h6>
+                  <p class="card-text">Member1 : {{ grp.member_name_1 }}</p>
+                  <p class="card-text">Member2 : {{ grp.member_name_2 }}</p>
+                  <p class="card-text">Member3 : {{ grp.member_name_3 }}</p>
+                  <p class="card-text">Member4 : {{ grp.member_name_4 }}</p>
+                  <p class="card-text">Member5 : {{ grp.member_name_5 }}</p>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+
+        </div>
 
 
     <script>

@@ -24,15 +24,55 @@
         <form class="pt-4 mt-4" action="/assign/">
             <h2 class="d-none" id="fade">Please Wait...</h2>
             {% for system in all_systems %}
-            <h2 class="" id={{ system.randomid }}>{{system.system.name}}</h2>
-            <h2 class="" name={{ system.randomid }}>{{system.system.id}}</h2>
+            <h2 class="d-none" id={{ system.id }}>{{system.name}}</h2>
+            <!-- <h2 class="d-none" name={{ system.id }}>{{system.actualID}}</h2> -->
             {% endfor %}
-            <input type="text" class="systemInput" name="systemInput" id="systemInput">
+            <input type="text" class="d-none systemInput" name="systemInput" id="systemInput">
             <br>
             <button id="assign" class="d-none btn btn-primary" type="submit">ASSIGN</button>
         </form>
     </center>
 
-    <script src="{% static 'js/main.js' %}"></script>
+    <!-- <script src="{% static 'js/main.js' %}"></script> -->
+    <script>
+        let r = 0;
+
+        function selectSystem(){
+            r = r + 1;
+            if(r > 1){
+                textToDelete = document.getElementById(r-1);
+                textToDelete.classList.add('d-none');
+            }
+            wait = document.getElementById('fade');
+            wait.classList.remove('d-none');
+            fadeout();
+            setTimeout(function(){
+                wait.classList.add('d-none');
+                text = document.getElementById(r);
+                text.classList.remove('d-none')
+                textId = document.getElementsByName(r);
+                input = document.getElementById('systemInput');
+                document.getElementById("systemInput").value = text.innerHTML;
+            }, 5000)
+
+            assign = document.getElementById('assign');
+            assign.classList.remove('d-none');
+        }
+
+            function fadeout(){
+                setTimeout(function() {
+            var fade = document.getElementById("fade");
+            fade.style.opacity = 1;
+            var timerId = setInterval(function() {
+                var opacity = fade.style.opacity;
+                if (opacity == 0) {
+                clearInterval(timerId);
+                } else {
+                fade.style.opacity = opacity - 0.01;
+                }
+            }, 50);
+            },1000);
+        }
+    </script>
 </body>
 </html>

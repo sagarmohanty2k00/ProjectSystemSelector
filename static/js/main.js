@@ -15,7 +15,7 @@ function selectSystem(){
         text.classList.remove('d-none')
         textId = document.getElementsByName(r);
         input = document.getElementById('systemInput');
-        input.value = textId.innerHTML;
+        document.getElementById("systemInput").value = textId.id;
     }, 5000)
 
     assign = document.getElementById('assign');

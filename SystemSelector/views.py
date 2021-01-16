@@ -12,26 +12,26 @@ def home(request):
 
 
     allSystem = []
-    for i in range(int(len(systemsToBeShown)/2)):
-        j = random.randint(i+1, len(systemsToBeShown)-1)
-        temp = systemsToBeShown[i]
-        systemsToBeShown[i] = systemsToBeShown[j]
+    l = len(systemsToBeShown)
+    ids = []
+    for i in range(l):
+        ids.append(i)
 
-        systemUnit = {}
-        systemUnit.clear()
 
-        systemUnit['randomid'] = i
-        systemUnit['system'] = systemsToBeShown[i]
+    i = 0
+    while(len(ids) > 0):
+        idx = random.randint(0, len(ids)-1)
+        systemName = systemsToBeShown[ids[idx]].name
 
-        allSystem.append(systemUnit)
+        sys = {}
+        sys['id'] = str(i +1)
+        i = i + 1
+        sys['actualID'] = systemsToBeShown[ids[idx]].id
+        ids.pop(idx)
+        sys['name'] = systemName
 
-    i = int(len(systemsToBeShown)/2)
-    while i < len(systemsToBeShown):
-        systemUnit = {}
-        systemUnit['randomid'] = i
-        systemUnit['system'] = systemsToBeShown[i]
-
-        allSystem.append(systemUnit)
+        allSystem.append(sys)
+ 
 
     return render(request, 'index.html', {'all_systems': allSystem})
 
@@ -43,7 +43,21 @@ def assign(request):
 
 
 def show(request):
-    return render(request, 'show.html')
+    allGroup = Group.objects.all()
+    c1 = []
+    c2 = []
+
+    for grp in allGroup:
+        if grp.Subgroup == 'C1':
+            c1.append(grp)
+        else:
+            c2.append(grp)
+
+    constraints = {
+        'c1':c1,
+        'c2':c2
+    }
+    return render(request, 'show.html', constraints)
 
 
 def save(request):
@@ -64,8 +78,8 @@ def save(request):
         if(system in s.name):
             sys_info = s
     grp = Group()
-    s.taken = True
-    s.save()
+    sys_info.taken = True
+    sys_info.save()
 
     grp.name = gname
     grp.project_system = sys_info
@@ -82,4 +96,8 @@ def save(request):
 
 
 def clear(request):
-    return render(request, 'index.html')
+    allSys = System.objects.all()
+    for sys in allSys:
+        sys.taken = False
+        sys.save()
+    return redirect('/')
